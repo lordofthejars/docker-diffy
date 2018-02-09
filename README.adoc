@@ -1,0 +1,4 @@
+Just do `docker-compose up` inside `example` folder and everything is stared.
+
+Then do: `curl --header "Canonical-Resource: Json" <IP>:8880/json?Twitter`
+Finally go to your browser: `http://<IP>:8888`

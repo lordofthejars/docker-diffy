@@ -1,0 +1,15 @@
+version: '3'
+services:
+  example:
+    image: "lordofthejars/diffy-example:1.0"
+    ports:
+     - "9000:9000"
+     - "9100:9100"
+     - "9200:9200"
+  diffy:
+    image: "lordofthejars/diffy:1.0"
+    ports:
+     - "8880:8880"
+     - "8881:8881"
+     - "8888:8888"
+    command: -candidate=example:9200 -master.primary=example:9000 -master.secondary=example:9100 -service.protocol=http -serviceName=My-Service -proxy.port=:8880 -admin.port=:8881 -http.port=:8888 -rootUrl='example:8888'
